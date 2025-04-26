@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="icon" href="../favicon.png" />
+    <title>Ruangan Kelas</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- aside menu -->
+      <aside>
+        <div class="name">
+          <img src="../assets/logo.png" alt="logo" class="logo" />
+          <h2 class="brand">
+            Sistem  <br />
+            Peminjaman Ruangan
+          </h2>
+          <h3 class="sub-brand">Sultan Ageng Tirtayasa</h3>
+        </div>
+        <div class="profile">
+          <img src="../assets/profile.png" alt="profile" class="profile-img" />
+          <h2 class="profile-name">Setiawan Permana</h2>
+          <h3 class="profile-status">Mahasiswa</h3>
+        </div>
+        <!-- menu -->
+        <ul class="list">
+          <li>
+            <a href="./home.html">
+              <div class="menu-item active">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="svg-arrow"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                  />
+                </svg>
+                Ruangan Kelas
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./peminjaman.html">
+              <div class="menu-item">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="svg-arrow"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                  />
+                </svg>
+                Peminjaman
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./profil.html">
+              <div class="menu-item">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="svg-arrow"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                  />
+                </svg>
+                Profil
+              </div>
+            </a>
+          </li>
+        </ul>
+        <a href="../index.html">
+          <div class="logout">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="svg-logout"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+              />
+            </svg>
+            Logout
+          </div>
+        </a>
+      </aside>
+
+      <!-- main content -->
+      <main class="main">
+        <header class="header">
+          <h1 class="title-page">Ruang Kelas</h1>
+          <div class="divider"></div>
+          <div class="header-util">
+            <div class="search-box">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="svg-search"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
+              </svg>
+              <input
+                type="search"
+                name="search"
+                id="search"
+                placeholder="Cari ruangan..."
+                class="form-input search"
+              />
+            </div>
+            <div class="notif">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="svg-notif"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
+                />
+              </svg>
+            </div>
+          </div>
+        </header>
+        <div class="content">
+          <!-- radio gedung lantai -->
+          <div class="label-wrapper">
+            <ul>
+              <li class="label-item">
+                <input
+                  type="radio"
+                  name="gedung"
+                  id="untirta-sindangsari"
+                  class="label"
+                  checked
+                />
+                <label for="untirta-sindangsari" class="label-radio">
+                  Sindangsari
+                </label>
+                <input
+                  type="radio"
+                  name="gedung"
+                  id="untirta-pakupatan"
+                  class="label"
+                />
+                <label for="untirta-pakupatan" class="label-radio">
+                  Pakupatan
+                </label>
+                <input
+                  type="radio"
+                  name="gedung"
+                  id="untirta-cilegon"
+                  class="label"
+                />
+                <label for="untirta-cilegon" class="label-radio">
+                  Cilegon
+                </label>
+                <input
+                  type="radio"
+                  name="gedung"
+                  id="untirta-ciwaru"
+                  class="label"
+                />
+                <label for="untirta-ciwaru" class="label-radio">
+                  Ciwaru
+                </label>
+              </li>
+            </ul>
+            <ul>
+              <li class="label-item">
+                <input
+                  type="radio"
+                  name="lantai"
+                  id="lantai-1"
+                  class="label"
+                  checked
+                />
+                <label for="lantai-1" class="label-radio"> Letter U </label>
+                <input type="radio" name="lantai" id="lantai-2" class="label" />
+                <label for="lantai-2" class="label-radio"> Gedung BR </label>
+                <input type="radio" name="lantai" id="lantai-3" class="label" />
+                <label for="lantai-3" class="label-radio"> Gedung COE </label>
+              </li>
+            </ul>
+          </div>
+          <!-- list data -->
+          <ul class="list-data">
+            <a href="ruangan205.html" class="card sm">
+              <div class="card-title">
+                <h4 class="card-ruangan">Ruangan 205</h4>
+                <h5 class="card-gedung">Letter U</h5>
+              </div>
+            </a>
+            <li class="card sm">
+              <div class="card-title">
+                <h4 class="card-ruangan">Ruangan 204</h4>
+                <h5 class="card-gedung">Letter U</h5>
+              </div>
+            </li>
+            <li class="card sm">
+              <div class="card-title">
+                <h4 class="card-ruangan">Ruangan 302</h4>
+                <h5 class="card-gedung">Letter U</h5>
+              </div>
+            </li>
+            <li class="card sm">
+              <div class="card-title">
+                <h4 class="card-ruangan">Ruangan 202</h4>
+                <h5 class="card-gedung">Letter U</h5>
+              </div>
+            </li>
+            <li class="card sm">
+              <div class="card-title">
+                <h4 class="card-ruangan">Ruangan 301</h4>
+                <h5 class="card-gedung">Letter U</h5>
+              </div>
+            </li>
+            <li class="card sm">
+              <div class="card-title">
+                <h4 class="card-ruangan">Ruangan 303</h4>
+                <h5 class="card-gedung">Letter U</h5>
+              </div>
+            </li>
+            <li class="card sm">
+              <div class="card-title">
+                <h4 class="card-ruangan">Ruangan 304</h4>
+                <h5 class="card-gedung">Letter U</h5>
+              </div>
+            </li>
+            <li class="card sm">
+              <div class="card-title">
+                <h4 class="card-ruangan">Ruangan 305</h4>
+                <h5 class="card-gedung">Letter U</h5>
+              </div>
+            </li>
+            <li class="card sm">
+              <div class="card-title">
+                <h4 class="card-ruangan">Ruangan 306</h4>
+                <h5 class="card-gedung">Letter U</h5>
+              </div>
+            </li>
+            <li class="card sm">
+              <div class="card-title">
+                <h4 class="card-ruangan">Ruangan 206</h4>
+                <h5 class="card-gedung">Letter U</h5>
+              </div>
+            </li>
+            <li class="card sm">
+              <div class="card-title">
+                <h4 class="card-ruangan">Ruangan 301</h4>
+                <h5 class="card-gedung">Gedung BR</h5>
+              </div>
+            </li>
+            <li class="card sm">
+              <div class="card-title">
+                <h4 class="card-ruangan">Ruangan 302</h4>
+                <h5 class="card-gedung">Gedung BR</h5>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </main>
+    </div>
+
+    <script src="../app.js"></script>
+  </body>
+</html>

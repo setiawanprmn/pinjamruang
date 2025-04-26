@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="wrapper">
+        <div class="brand-inline">
+          <img src="./assets/logo.png" alt="logo" class="logo-inline" />
+          <div class="name">
+            <h2 class="brand">
+              Sistem  <br />
+              Peminjaman Ruangan Kelas
+            </h2>
+            <h3 class="sub-brand">Sultan Ageng Tirtayasa</h3>
+          </div>
+        </div>
+        <form action="pages/home.html" class="form">
+          <div class="input">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Input email"
+              class="form-input"
+            />
+          </div>
+          <div class="input">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Input password"
+              class="form-input"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+          <button type="button" class="btn btn-secondary">
+            <img
+              src="./assets/google.png"
+              alt="google logo"
+              class="google-logo"
+            />
+            Login dengan Google
+          </button>
+        </form>
+        <div class="copyright"></div>
+      </div>
+    </div>
+
+    <script>
+      const date = new Date();
+      const year = date.getFullYear();
+
+      const copyright = document.querySelector(".copyright");
+      copyright.innerHTML = ` SI C &copy ${year}`;
+    </script>
+  </body>
+</html>
