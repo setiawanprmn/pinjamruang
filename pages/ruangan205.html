@@ -201,26 +201,130 @@
           </div>
           <div id="calendar"></div>
         
-          <script>
-            document.addEventListener('DOMContentLoaded', function() {
-              var calendarEl = document.getElementById('calendar');
+         <!-- Tambahkan di bagian content ruangan205.html -->
+         <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const calendarEl = document.getElementById('calendar');
+            let selectedRange = null;
+            // Fungsi untuk localStorage
+          function getAllBookings() {
+            return JSON.parse(localStorage.getItem('roomBookings')) || [];
+          }
 
-              var calendar = new FullCalendar.Calendar(calendarEl, {
-                selectable: true,
-                headerToolbar: {
-                  left: 'prev,next today',
-                  center: 'title',
-                  right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                },
-                dateClick: function(info) {
-                  calendar.changeView('timeGridDay', info.dateStr);
-                }
-              });           
-
-              calendar.render();
+          function saveBookingToStorage(booking) {
+            const bookings = getAllBookings();
+            bookings.push(booking);
+            localStorage.setItem('roomBookings', JSON.stringify(bookings));
+          }
+            // Inisialisasi calendar
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+              initialView: 'timeGridWeek',
+              selectable: true,
+              selectMirror: true,
+              events: getAllBookings(), // Ambil data dari localStorage
+              select: function(arg) {
+                selectedRange = {
+                  start: arg.start,
+                  end: arg.end,
+                  title: 'Peminjaman R2-05'
+                };
+                showBookingForm();
+                
+              },
+              eventDidMount: function(info) {
+                // Tambahkan tooltip
+                new bootstrap.Tooltip(info.el, {
+                  title: info.event.extendedProps.description,
+                  placement: 'top',
+                  trigger: 'hover',
+                  container: 'body'
+                });
+                
+              }
             });
+          
+            calendar.render();
+          
+            // Tampilkan form booking
+            function showBookingForm() {
+              const formHTML = `
+                <div class="booking-overlay">
+                  <div class="booking-form">
+                    <h3>Form Peminjaman Ruangan</h3>
+                    <div class="form-group">
+                      <label>Waktu Mulai</label>
+                      <input type="text" 
+                        value="${selectedRange.start.toLocaleString()}" 
+                        disabled>
+                    </div>
+                    <div class="form-group">
+                      <label>Waktu Selesai</label>
+                      <input type="text" 
+                        value="${selectedRange.end.toLocaleString()}" 
+                        disabled>
+                    </div>
+                    <div class="form-group">
+                      <label>Keterangan</label>
+                      <textarea id="booking-description" 
+                        placeholder="Contoh: Rapat Prodi Teknik Informatika"
+                        required></textarea>
+                    </div>
+                    <div class="form-actions">
+                      <button class="btn-submit">Ajukan</button>
+                      <button class="btn-cancel">Batal</button>
+                    </div>
+                  </div>
+                </div>
+              `;
+          
+              document.body.insertAdjacentHTML('beforeend', formHTML);
+          
+              // Event listeners untuk tombol
+              document.querySelector('.btn-submit').addEventListener('click', submitBooking);
+              document.querySelector('.btn-cancel').addEventListener('click', closeForm);
+            }
+          
+            // Fungsi submit booking
+            function submitBooking() {
+              const description = document.getElementById('booking-description').value;
+              
+              if (!description) {
+                alert('Harap isi keterangan peminjaman!');
+                return;
+              }
+          
+              const newBooking = {
+                title: 'Booked',
+                start: selectedRange.start,
+                end: selectedRange.end,
+                color: '#ff9f89',
+                extendedProps: {
+                  description: description,
+                  room: 'R2-05',
+                  status: 'pending'
+                }
+              };
+          
+              // Simpan ke localStorage
+              saveBookingToStorage(newBooking);
+              
+              // Tambahkan ke calendar
+              calendar.addEvent(newBooking);
+              
+              // Reset form
+              closeForm();
+              alert('Peminjaman berhasil diajukan!');
+            }
+          
+            // Fungsi tutup form
+            function closeForm() {
+              document.querySelector('.booking-overlay').remove();
+            }
+          
+          });
+              
+
           </script>
-        
         </div>
       </main>
     </div>

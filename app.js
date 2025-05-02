@@ -69,3 +69,91 @@ cardStatus.forEach((item) => {
   const result = statusText.find((item) => item.toLowerCase() === status);
   item.textContent = result;
 });
+// Fungsi untuk menyimpan booking ke localStorage
+function saveBookingToStorage(bookingData) {
+  // Ambil data yang sudah ada atau buat array kosong
+  const existingBookings = JSON.parse(localStorage.getItem('roomBookings')) || [];
+  
+  // Tambahkan booking baru
+  existingBookings.push(bookingData);
+  
+  // Simpan kembali ke localStorage
+  localStorage.setItem('roomBookings', JSON.stringify(existingBookings));
+}
+
+// Fungsi untuk mengambil semua booking
+function getAllBookings() {
+  return JSON.parse(localStorage.getItem('roomBookings')) || [];
+}
+
+// Fungsi untuk menghapus semua data (untuk testing)
+function clearAllBookings() {
+  localStorage.removeItem('roomBookings');
+}
+// // app.js - Tambahkan fungsi ini
+// function generateRuangan() {
+//   const listData = document.querySelector('.list-data');
+//   listData.innerHTML = '';
+
+//   for (const [gedung, data] of Object.entries(ruanganData)) {
+//     if (gedung === 'Lainnya') {
+//       data.forEach(ruangan => createCard(ruangan, gedung));
+//     } else {
+//       for (const [lantai, ruangans] of Object.entries(data)) {
+//         ruangans.forEach(ruangan => createCard(ruangan, gedung));
+//       }
+//     }
+//   }
+// }
+
+// function createCard(namaRuangan, gedung) {
+//   const card = document.createElement('a');
+//   card.className = 'card sm';
+//   card.href = '#';
+  
+//   card.innerHTML = `
+//     <div class="card-title">
+//       <h4 class="card-ruangan">${namaRuangan}</h4>
+//       <h5 class="card-gedung">${gedung}</h5>
+//     </div>
+//     <div class="card-status available"></div>
+//   `;
+  
+//   document.querySelector('.list-data').appendChild(card);
+// }
+
+// // Panggil fungsi saat halaman dimuat
+// document.addEventListener('DOMContentLoaded', generateRuangan);
+// // app.js - Tambahkan fungsi profil
+// function initProfile() {
+//   const profileData = JSON.parse(localStorage.getItem('profile')) || {
+//     name: 'Setiawan Permana',
+//     status: 'Mahasiswa',
+//     photo: '../assets/profile.png'
+//   };
+
+//   // Update semua komponen profil
+//   document.querySelectorAll('.profile-name').forEach(el => el.textContent = profileData.name);
+//   document.querySelectorAll('.profile-status').forEach(el => el.textContent = profileData.status);
+//   document.querySelectorAll('.profile-img').forEach(img => img.src = profileData.photo);
+// }
+
+// // Form submit handler
+// document.getElementById('editProfileForm')?.addEventListener('submit', function(e) {
+//   e.preventDefault();
+  
+//   const profileData = {
+//     name: document.getElementById('fullName').value,
+//     status: document.getElementById('userStatus').value,
+//     photo: document.getElementById('profilePhoto').files[0] 
+//       ? URL.createObjectURL(document.getElementById('profilePhoto').files[0])
+//       : document.querySelector('.profile-img').src
+//   };
+
+//   localStorage.setItem('profile', JSON.stringify(profileData));
+//   initProfile(); // Update UI
+//   alert('Profil berhasil diperbarui!');
+// });
+
+// // Panggil saat halaman dimuat
+// document.addEventListener('DOMContentLoaded', initProfile);

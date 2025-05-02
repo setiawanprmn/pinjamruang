@@ -654,3 +654,77 @@ aside {
 .empty-day {
   visibility: hidden;
 }
+/* BOOKing */
+/* Style untuk localStorage booking */
+.booking-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.booking-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.booking-form input[disabled] {
+  background: #f8f9fa;
+  cursor: not-allowed;
+}
+
+.booking-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.btn-submit {
+  background: #009ef7;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background: #6c757d;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.fc-highlight {
+  display: none !important;
+}
+
+/* Style untuk seleksi drag */
+.fc-select-mirror {
+  background: rgba(0, 158, 247, 0.1) !important;
+  border: 2px dashed #009ef7 !important;
+}
+.fc-daygrid-event.fc-selected {
+  background: rgba(0, 158, 247, 0.5) !important;
+  border: 2px solid #009ef7 !important;
+}
