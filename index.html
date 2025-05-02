@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./assets/logo.png" type="image/png">
+  <title>Login | Sistem Peminjaman Ruangan</title>
+</head>
+<body>
+  <main class="login-page">
+    <div class="login-card">
+      <div class="login-header">
+        <img src="./assets/logo.png" alt="Logo Universitas" class="login-logo">
+        <div class="login-title">
+          <h1>Sistem Peminjaman Ruangan Kelas</h1>
+          <h2>Universitas Sultan Ageng Tirtayasa</h2>
+        </div>
+      </div>
+
+      <form action="pages/home.html" method="post" class="login-form">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email"
+            placeholder="Masukkan email Anda"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password"
+            placeholder="Masukkan password Anda"
+            required
+          >
+        </div>
+
+        <button type="submit" class="btn btn-login">Masuk</button>
+
+        <div class="login-divider">
+          <span>atau</span>
+        </div>
+
+        <button type="button" class="btn btn-google">
+          <img src="./assets/google.png" alt="Google Logo" class="google-icon">
+          Masuk dengan Google
+        </button>
+      </form>
+
+      <div class="login-footer">
+        &copy; Sistem Peminjaman Ruangan <span id="current-year"></span>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

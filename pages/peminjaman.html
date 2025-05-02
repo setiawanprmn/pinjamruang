@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="icon" href="../assets/logo.png" type="image/png" />
+    <title>Peminjaman</title>
+    <style>
+      /* Tambahan CSS untuk Form Peminjaman */
+      .booking-form {
+        background: white;
+        padding: 24px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .form-title {
+        margin-bottom: 24px;
+        color: #2c3e50;
+        text-align: center;
+      }
+      .form-group {
+        margin-bottom: 16px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+      .form-input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+      .time-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .btn-submit {
+        background: #3498db;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        font-weight: 600;
+        margin-top: 16px;
+      }
+      .btn-submit:hover {
+        background: #2980b9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- aside menu -->
+      <aside>
+        <div class="name">
+          <img src="../assets/logo.png" alt="logo" class="logo" />
+          <h2 class="brand">
+            Sistem  <br />
+            Peminjaman Ruangan
+          </h2>
+          <h3 class="sub-brand">Sultan Ageng Tirtayasa</h3>
+        </div>
+        <div class="profile">
+          <img src="../assets/profile.png" alt="profile" class="profile-img" />
+          <h2 class="profile-name">Setiawan Permana</h2>
+          <h3 class="profile-status">Mahasiswa</h3>
+        </div>
+        <ul class="list">
+          <li>
+            <a href="./home.html">
+              <div class="menu-item">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="svg-arrow"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                  />
+                </svg>
+                Ruangan Kelas
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./peminjaman.html">
+              <div class="menu-item active">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="svg-arrow"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                  />
+                </svg>
+                Peminjaman
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./laporan.html">
+              <div class="menu-item">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="svg-arrow"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                  />
+                </svg>
+                Laporan Peminjaman
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./profil.html">
+              <div class="menu-item">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="svg-arrow"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                  />
+                </svg>
+                Profil
+              </div>
+            </a>
+          </li>
+        </ul>
+        <a href="../index.html">
+          <div class="logout">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="svg-logout"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+              />
+            </svg>
+            Logout
+          </div>
+        </a>
+      </aside>
+      <main class="main">
+        <header class="header">
+          <h1 class="title-page">Peminjaman</h1>
+          <div class="divider"></div>
+          <div class="header-util">
+            <div class="search-box">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="svg-search"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
+              </svg>
+              <input
+                type="search"
+                name="search"
+                id="search"
+                placeholder="Cari ruangan..."
+                class="form-input search"
+              />
+            </div>
+            <div class="notif">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="svg-notif"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
+                />
+              </svg>
+            </div>
+          </div>
+        </header>
+        <div class="content">
+          <!-- Form Peminjaman -->
+          <form id="bookingForm" class="booking-form">
+            <h3 class="form-title">Form Peminjaman Ruangan</h3>
+            
+            <div class="form-group">
+              <label for="room">Ruangan: R2-01</label>
+            </div>
+
+            <div class="form-group">
+              <label for="purpose">Identitas Peminjam</label>
+              <input type="text" id="purpose" class="form-input" placeholder="(Nama Peminjam)" required>
+              <input type="text" id="purpose" class="form-input" placeholder="(NIM Peminjam)" required>
+            </div>
+
+            <div class="form-group">
+              <label for="date">Tanggal Peminjaman</label>
+              <input type="text" id="date" class="form-input" placeholder="Pilih tanggal" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="time">Waktu</label>
+              <div class="time-grid">
+                <div>
+                  <label for="startTime">Mulai</label>
+                  <input type="time" id="startTime" class="form-input" required>
+                </div>
+                <div>
+                  <label for="endTime">Selesai</label>
+                  <input type="time" id="endTime" class="form-input" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="purpose">Tujuan</label>
+              <input type="text" id="purpose" class="form-input" placeholder="Contoh: Rapat Proyek" required>
+            </div>
+
+            <button type="submit" class="btn-submit">Ajukan Peminjaman</button>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/id.js"></script>
+    <script src="../app.js"></script>
+    <script>
+      // Inisialisasi Flatpickr
+      flatpickr("#date", {
+        locale: "id",
+        minDate: "today",
+        dateFormat: "d-m-Y",
+      });
+
+      // Handle form submission
+      document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const room = document.getElementById('room').value;
+        const date = document.getElementById('date').value;
+        const startTime = document.getElementById('startTime').value;
+        const endTime = document.getElementById('endTime').value;
+        const purpose = document.getElementById('purpose').value;
+
+        // Validasi
+        if (!room || !date || !startTime || !endTime || !purpose) {
+          alert('Harap isi semua field!');
+          return;
+        }
+
+        // Simpan data (mock)
+        const bookingData = {
+          room,
+          date,
+          startTime,
+          endTime,
+          purpose,
+          status: 'pending'
+        };
+
+        console.log('Data Peminjaman:', bookingData);
+        alert('Peminjaman berhasil diajukan!');
+        this.reset();
+      });
+
+      flatpickr("#date", {
+      dateFormat: "Y-m-d",
+      minDate: "today"
+    });
+
+    flatpickr("#startTime", {
+      enableTime: true,
+      noCalendar: true,
+      dateFormat: "H:i",
+      minuteIncrement: 30
+    });
+
+    flatpickr("#endTime", {
+      enableTime: true,
+      noCalendar: true,
+      dateFormat: "H:i",
+      minuteIncrement: 30
+    });
+
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const room = document.getElementById('room').value;
+      const date = document.getElementById('date').value;
+      const start = document.getElementById('startTime').value;
+      const end = document.getElementById('endTime').value;
+
+      // Dummy logic for checking availability
+      if (room && date && start && end) {
+        // For demonstration, randomly simulate availability
+        const available = Math.random() > 0.5;
+        document.getElementById('availability').textContent = available
+          ? "Ruangan tersedia!"
+          : "Ruangan tidak tersedia pada waktu tersebut.";
+        document.getElementById('availability').style.color = available ? 'green' : 'red';
+      } else {
+        document.getElementById('availability').textContent = "Harap lengkapi semua isian.";
+        document.getElementById('availability').style.color = 'orange';
+      }
+    });
+    </script>
+    <script>
+      // Mengubah href satu elemen card
+      const cardLink = document.querySelector('a.card.sm[href="#"]');
+      if (cardLink) {
+        cardLink.setAttribute('href', 'peminjaman.html');
+      }
+    
+      // Mengarahkan tombol ke laporan.html saat diklik
+      const submitButton = document.querySelector('.btn-submit');
+      if (submitButton) {
+        submitButton.addEventListener('click', function (e) {
+          e.preventDefault(); // cegah default submit (jika dalam form)
+          window.location.href = 'laporan.html';
+        });
+      }
+    </script>
+    
+  </body>
+</html>

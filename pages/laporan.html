@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="icon" href="../assets/logo.png" type="image/png" />
+    <title>Laporan Peminjaman Ruangan</title>
+    <!-- SheetJS Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- aside menu -->
+      <aside>
+        <div class="name">
+          <img src="../assets/logo.png" alt="logo" class="logo" />
+          <h2 class="brand">
+            Sistem  <br />
+            Peminjaman Ruangan
+        </h2>
+          <h3 class="sub-brand">Sultan Ageng Tirtayasa</h3>
+        </div>
+        <div class="profile">
+          <img src="../assets/profile.png" alt="profile" class="profile-img" />
+          <h2 class="profile-name">Setiawan Permana</h2>
+          <h3 class="profile-status">Mahasiswa</h3>
+        </div>
+        <!-- menu -->
+        <ul class="list">
+            <li>
+              <a href="./home.html">
+                <div class="menu-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="svg-arrow"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                    />
+                  </svg>
+                  Ruangan Kelas
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="./peminjaman.html">
+                <div class="menu-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="svg-arrow"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                    />
+                  </svg>
+                  Peminjaman
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="./laporan.html">
+                <div class="menu-item active">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="svg-arrow"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                    />
+                  </svg>
+                  Laporan Peminjaman
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="./profil.html">
+                <div class="menu-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="svg-arrow"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                    />
+                  </svg>
+                  Profil
+                </div>
+              </a>
+            </li>
+          </ul>
+          <a href="../index.html">
+            <div class="logout">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="svg-logout"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                />
+              </svg>
+              Logout
+            </div>
+          </a>
+        </aside>
+
+      <!-- main content -->
+      <main class="main">
+        <header class="header">
+          <h1 class="title-page">Laporan Peminjaman Ruangan</h1>
+          <div class="divider"></div>
+        </header>
+        <div class="content">
+          <h4>Daftar Ruangan yang Dipinjam</h4>
+          <ul class="list-data" id="report-list">
+            <!-- Data ruangan yang dipinjam akan ditampilkan di sini -->
+          </ul>
+          
+          <!-- Tombol Download Excel -->
+          <button id="downloadExcel" class="btn btn-primary">Download Excel</button>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const reportList = document.getElementById('report-list');
+
+        // Data peminjaman (sama dengan data di peminjaman.html)
+        const peminjamanData = [
+        { nama: 'User: Setiawan', ruangan: 'R201', tanggal: '24 April 2025', jam: '08:30-12:00', status: 'Dipinjam' },
+        { nama: 'User: Shindu', ruangan: 'R205', tanggal: '25 April 2025', jam: '09:45-12:30', status: 'Dipinjam' },
+        { nama: 'User: Dwi Putra', ruangan: 'R101', tanggal: '26 April 2025', jam: '14:00-15:00', status: 'Selesai' },
+        { nama: 'User: Setiawan Permana', ruangan: 'R101', tanggal: '26 April 2025', jam: '14:00-15:00', status: 'Selesai' },
+        { nama: 'User: Marisa', ruangan: 'R101', tanggal: '26 April 2025', jam: '14:00-15:00', status: 'Selesai' },
+        { nama: 'User: Gathan', ruangan: 'R101', tanggal: '26 April 2025', jam: '14:00-15:00', status: 'Selesai' },
+        { nama: 'User: Ayu Ratna', ruangan: 'BR1-1', tanggal: '27 April 2025', jam: '07:30-09:00', status: 'Dipinjam' },
+        { nama: 'User: Doni Saputra', ruangan: 'BR2-2', tanggal: '28 April 2025', jam: '08:00-10:00', status: 'Selesai' },
+        { nama: 'User: Kevin', ruangan: 'BR3-1', tanggal: '29 April 2025', jam: '09:30-11:00', status: 'Dipinjam' },
+        { nama: 'User: Bella Nur', ruangan: 'Vicon', tanggal: '30 April 2025', jam: '10:00-12:00', status: 'Dipinjam' },
+        { nama: 'User: Fahmi Aditya', ruangan: 'Aula', tanggal: '01 Mei 2025', jam: '07:00-10:00', status: 'Dipinjam' },
+        { nama: 'User: Wahyu Hidayat', ruangan: 'R205', tanggal: '01 Mei 2025', jam: '13:00-15:00', status: 'Selesai' },
+        { nama: 'User: Laras', ruangan: 'BR1-3', tanggal: '02 Mei 2025', jam: '08:00-09:30', status: 'Dipinjam' },
+        { nama: 'User: Rizky Firmansyah', ruangan: 'BR2-1', tanggal: '02 Mei 2025', jam: '09:00-11:00', status: 'Dipinjam' },
+        { nama: 'User: Hilda Yuliana', ruangan: 'R208', tanggal: '03 Mei 2025', jam: '10:00-12:00', status: 'Selesai' },
+        { nama: 'User: Dimas Aji', ruangan: 'BR3-2', tanggal: '03 Mei 2025', jam: '13:00-15:00', status: 'Dipinjam' },
+        { nama: 'User: Farhan', ruangan: 'Vicon', tanggal: '04 Mei 2025', jam: '07:30-08:30', status: 'Selesai' },
+        { nama: 'User: Rina', ruangan: 'Aula', tanggal: '04 Mei 2025', jam: '09:00-12:00', status: 'Dipinjam' },
+        { nama: 'User: Aldo', ruangan: 'R213', tanggal: '05 Mei 2025', jam: '10:30-12:30', status: 'Dipinjam' },
+        { nama: 'User: Nia Rahmawati', ruangan: 'BR1-2', tanggal: '05 Mei 2025', jam: '13:00-14:30', status: 'Selesai' },
+        { nama: 'User: Bayu Ananda', ruangan: 'R216', tanggal: '06 Mei 2025', jam: '08:00-10:00', status: 'Dipinjam' },
+        { nama: 'User: Eka Septian', ruangan: 'BR2-3', tanggal: '06 Mei 2025', jam: '10:30-12:30', status: 'Selesai' },
+        { nama: 'User: Maya Putri', ruangan: 'Aula', tanggal: '07 Mei 2025', jam: '09:00-11:00', status: 'Dipinjam' },
+        { nama: 'User: Satria', ruangan: 'BR3-3', tanggal: '07 Mei 2025', jam: '13:00-15:00', status: 'Dipinjam' },
+        { nama: 'User: Anisa Fajar', ruangan: 'R211', tanggal: '08 Mei 2025', jam: '07:00-09:00', status: 'Selesai' },
+        { nama: 'User: Wahid', ruangan: 'R214', tanggal: '08 Mei 2025', jam: '09:30-11:30', status: 'Dipinjam' },
+        { nama: 'User: Iqbal Ramadhan', ruangan: 'R209', tanggal: '09 Mei 2025', jam: '08:00-10:00', status: 'Selesai' },
+        { nama: 'User: Nur Azizah', ruangan: 'BR1-1', tanggal: '09 Mei 2025', jam: '10:00-12:00', status: 'Dipinjam' },
+        { nama: 'User: Rangga Wisesa', ruangan: 'Aula', tanggal: '10 Mei 2025', jam: '07:00-09:00', status: 'Dipinjam' },
+        { nama: 'User: Desi Arum', ruangan: 'Vicon', tanggal: '10 Mei 2025', jam: '09:30-11:00', status: 'Selesai' }
+          // Data lainnya bisa ditambahkan atau diambil dari backend/database
+        ];
+
+        peminjamanData.forEach((peminjaman) => {
+          if (peminjaman.status === 'Dipinjam') {
+            const listItem = document.createElement('li');
+            listItem.classList.add('card', 'lg');
+            listItem.innerHTML = `
+              <div class="card-title">
+                <h4 class="card-ruangan">${peminjaman.ruangan}</h4>
+              </div>
+              <h4 class="card-nama">${peminjaman.nama}</h4>
+              <div class="card-date">${peminjaman.tanggal}</div>
+              <div class="card-jam">${peminjaman.jam}</div>
+              <div class="card-status booking">${peminjaman.status}</div>
+            `;
+            reportList.appendChild(listItem);
+        }});
+
+        // Fungsi untuk mendownload file Excel
+        document.getElementById('downloadExcel').addEventListener('click', function () {
+          const ws = XLSX.utils.json_to_sheet(peminjamanData);  // Mengonversi data ke sheet Excel
+          const wb = XLSX.utils.book_new();                     // Membuat workbook baru
+          XLSX.utils.book_append_sheet(wb, ws, 'Peminjaman');   // Menambahkan sheet ke workbook
+
+          // Mendownload file Excel
+          XLSX.writeFile(wb, 'Laporan_Peminjaman_Ruangan.xlsx');
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" href="../assets/logo.png" type="image/png" />
+  <title>Profil</title>
+  <style>
+    .profile-detail {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+      max-width: 700px;
+      margin: 2rem auto;
+    }
+
+    .profile-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .profile-detail-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+    }
+
+    .profile-info p {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+    }
+
+    .btn-edit {
+      margin-top: 1.5rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #3f8cff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .btn-edit:hover {
+      background-color: #2f6edc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- aside menu -->
+    <aside>
+      <div class="name">
+        <img src="../assets/logo.png" alt="logo" class="logo" />
+        <h2 class="brand">Sistem <br /> Peminjaman Ruangan</h2>
+        <h3 class="sub-brand">Sultan Ageng Tirtayasa</h3>
+      </div>
+      <div class="profile">
+        <img src="../assets/profile.png" alt="profile" class="profile-img" />
+        <h2 class="profile-name">Setiawan Permana</h2>
+        <h3 class="profile-status">Mahasiswa</h3>
+      </div>
+      <ul class="list">
+        <li>
+          <a href="./home.html">
+            <div class="menu-item">Ruangan Kelas</div>
+          </a>
+        </li>
+        <li>
+          <a href="./peminjaman.html">
+            <div class="menu-item">Peminjaman</div>
+          </a>
+        </li>
+        <li>
+          <a href="./laporan.html">
+            <div class="menu-item">Laporan Peminjaman</div>
+          </a>
+        </li>
+        <li>
+          <a href="./profil.html">
+            <div class="menu-item active">Profil</div>
+          </a>
+        </li>
+      </ul>
+      <a href="../index.html">
+        <div class="logout">Logout</div>
+      </a>
+    </aside>
+
+    <!-- main content -->
+    <main class="main">
+      <header class="header">
+        <h1 class="title-page">Profil</h1>
+        <div class="divider"></div>
+        <div class="header-util">
+          <div class="notif" style="margin-left: auto;">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              class="svg-notif">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+            </svg>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="profile-detail">
+          <h2>Informasi Pengguna</h2>
+          <div class="profile-card">
+            <img src="../assets/profile.png" alt="Foto Profil" class="profile-detail-img" />
+            <div class="profile-info">
+              <p><strong>Nama:</strong> Setiawan Permana</p>
+              <p><strong>NIM:</strong> 33372200</p>
+              <p><strong>Email:</strong> 1234567890@untirta.ac.id</p>
+              <p><strong>Program Studi:</strong> Teknik Informatika</p>
+              <p><strong>Status:</strong> Mahasiswa Aktif</p>
+            </div>
+          </div>
+          <button class="btn-edit">Edit Profil</button>
+        </div>
+      </div>
+
+      <!-- <div class="content">
+        <div class="profile-detail">
+          <h2>Informasi Pengguna</h2>
+          <div class="profile-card">
+            <img src="../assets/profile.png" alt="Foto Profil" class="profile-detail-img" />
+            <div class="profile-info">
+              <p><strong>Nama:</strong> Andi Wijaya</p>
+              <p><strong>NIM:</strong> 1234567890</p>
+              <p><strong>Email:</strong> 1234567890@untirta.ac.id</p>
+              <p><strong>Program Studi:</strong> Teknik Informatika</p>
+              <p><strong>Status:</strong> Mahasiswa Aktif</p>
+            </div>
+          </div>
+          <button class="btn-edit">Edit Profil</button>
+        </div>
+      </div> -->
+
+      <!-- <div class="content">
+        <div class="profile-detail">
+          <h2>Informasi Pengguna</h2>
+          <div class="profile-card">
+            <img src="../assets/profile.png" alt="Foto Profil" class="profile-detail-img" />
+            <div class="profile-info">
+              <p><strong>Nama:</strong> Andi Wijaya</p>
+              <p><strong>NIM:</strong> 1234567890</p>
+              <p><strong>Email:</strong> 1234567890@untirta.ac.id</p>
+              <p><strong>Program Studi:</strong> Teknik Informatika</p>
+              <p><strong>Status:</strong> Mahasiswa Aktif</p>
+            </div>
+          </div>
+          <button class="btn-edit">Edit Profil</button>
+        </div>
+      </div> -->
+      
+    </main>
+  </div>
+</body>
+</html>
